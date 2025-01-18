@@ -24,7 +24,7 @@ echo "-> Current Version v$VERSION\n"
 
 readmeFile="README.md"
 sed -i '' "s/\(version-\)[0-9]*\.[0-9]*\.[0-9]*/\1$VERSION/" "$readmeFile"
-sed -i '' "s|\(tags/\)[0-9]*\.[0-9]*\.[0-9]*|\1$VERSION|" "$readmeFile"
+sed -i '' "s|\(tag/\)[0-9]*\.[0-9]*\.[0-9]*|\1$VERSION|" "$readmeFile"
 
 # Browsers Array
 browsers=()
