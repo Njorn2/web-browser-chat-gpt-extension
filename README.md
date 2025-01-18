@@ -256,7 +256,7 @@ This project is licensed under the [MIT License](LICENSE).
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [version-shield]: https://img.shields.io/badge/version-1.0.0-darkred
-[version-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/tags/1.0.0
+[version-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/releases/tag/1.0.0
 [forks-shield]: https://img.shields.io/badge/forks-0-blue
 [forks-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/forks
 [stars-shield]: https://img.shields.io/badge/stars-0-blue
