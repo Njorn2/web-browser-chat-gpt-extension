@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+    <head>
+        <title>ChatGPT Organizer</title>
+        <style>
+            body {
+                background-color: #121212;
+                width: 250px;
+                margin: 0px;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            ul > p {
+                color: white;
+                width: 100%;
+                text-align: center;
+            }
+            ul > button {
+                color: white;
+                margin-left: 20px;
+                margin-bottom: 20px;
+                width: calc(100% - 40px);
+                height: 25px;
+                background-color: #2b75ca;
+                border: none;
+                border-radius: 5px;
+            }
+            .app-title {
+                text-align: center;
+            }
+            .collapsible {
+                cursor: pointer;
+                padding: 10px;
+                margin: 0;
+            }
+            .collapsible.dark {
+                background-color: #121212;
+                color: white;
+                border-bottom: 1px solid #9999;
+            }
+            .collapsible.white {
+                background-color: white;
+                color: #121212;
+            }
+            .collapsible:after {
+                content: "\02795"; /* Unicode character for "plus" sign (+) */
+                float: right;
+            }
+
+            .nested {
+                display: none;
+                margin: 0px 5px;
+            }
+
+            .active + .nested {
+                display: block;
+            }
+            .active:after {
+                content: "\2212";
+            }
+            .tx-color-red {
+                color: #ca2b3b;
+            }
+            .tx-color-gray {
+                color: #121212;
+            }
+            .tx-color-blue {
+                color: #2b75ca;
+            }
+            .tx-color-white {
+                color: white;
+            }
+            .divisor-line {
+                height: 1px;
+                width: 100%;
+                border-bottom: 1px solid #5a646d;
+            }
+            .list-item {
+                padding: 5px;
+                border-bottom: 1px solid #9999;
+                height: 30px;
+                align-content: center;
+                cursor: pointer;
+                font-weight: bold;
+                background-color: #ddd;
+            }
+            .list-item:hover {
+                background: #ccc;
+            }
+            .search-box {
+                width: 95%;
+                padding: 5px;
+                background: url("images/search.svg") no-repeat right;
+                color: white;
+                background-color: #121212;
+                background-size: 20px;
+            }
+            .search-box input {
+                width: calc(100% - 25px);
+                border-radius: 5px;
+                height: 25px;
+                text-align: center;
+                border: 1px solid #ccc;
+                background-color: white;
+                margin-left: 5px;
+            }
+            .version {
+                font-size: 10px;
+                display: block;
+                margin-top: 3px;
+                margin-right: 3px;
+                width: calc(100% - 3px);
+                color: white;
+                font-weight: bold;
+                text-align: right;
+            }
+        </style>
+        <script src="popup.js" defer></script>
+    </head>
+    <body>
+        <div class="top-box">
+            <label id="version" class="version">{version}</label>
+            <img src="images/logo_top.png" />
+        </div>
+        <div class="search-box">
+            <input id="input-search" type="search" />
+        </div>
+        <ul id="conversations-list"></ul>
+    </body>
+</html>
