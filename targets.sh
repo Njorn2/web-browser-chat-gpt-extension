@@ -69,7 +69,7 @@ if [ -z "$1" ]; then
         echo " \xE2\x9C\x94 Popup JS Done!"
 
         echo "-> Copying content.js..."
-        cp source/popup.html "$TARGETS_PATH$browser"
+        cp source/content.js "$TARGETS_PATH$browser"
         echo " \xE2\x9C\x94 content.js Done!\n"
 
         echo " \xE2\x9C\x94 Target $browser Configured!\n"
@@ -104,7 +104,7 @@ else
     echo " \xE2\x9C\x94 Popup JS Done!"
 
     echo "-> Copying content.js..."
-    cp source/popup.html "$TARGETS_PATH$1"
+    cp source/content.js "$TARGETS_PATH$1"
     echo " \xE2\x9C\x94 content.js Done!\n"
 
     echo " \xE2\x9C\x94 Target $1 Configured!"

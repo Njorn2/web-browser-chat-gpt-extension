@@ -1,8 +1,8 @@
 # Folders
 build/
 .ropeproject/
-targets
+targets/
 
 # Files
-start-*.sh
+target-*.sh
 .DS_Store

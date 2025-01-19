@@ -34,9 +34,9 @@ echo "-> Compatible Browsers: ${browsers[@]}"
 # Iterate over the array \xE2\x9C\x94
 echo "-> Creting Targets"
 for browser in "${browsers[@]}"; do
-    echo "-> Creating start-$browser.sh"
-    touch "start-$browser.sh"
-    echo "sh start.sh $browser" > "start-$browser.sh"
-    echo " \xE2\x9C\x94 start-$browser.sh created."
+    echo "-> Creating target-$browser.sh"
+    touch "target-$browser.sh"
+    echo "sh target.sh $browser" > "target-$browser.sh"
+    echo " \xE2\x9C\x94 target-$browser.sh created."
 done
 echo "\n \xE2\x9C\x94 Targets ${browsers[@]} created!"
