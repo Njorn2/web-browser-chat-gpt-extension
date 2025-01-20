@@ -4,6 +4,10 @@
 [![License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+[![Chrome][chrome-shield]][chrome-url]
+[![Firefox][firefox-shield]][firefox-url]
+[![Opera][opera-shield]][opera-url]
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -300,3 +304,10 @@ This project is licensed under the [MIT License](LICENSE).
 [linkedin-shield]: https://img.shields.io/badge/linked-in-blue
 [linkedin-url]: https://www.linkedin.com/in/ruan-gustavo-oliveira/
 [product-screenshot]: source/images/screen_shot_publish.png
+
+[chrome-shield]: https://img.shields.io/badge/chrome-1.0.0-blue
+[chrome-url]: https://chromewebstore.google.com/detail/organizegpt/joopoghilonoiigjmhdcfmcihjjkkimb?hl=pt-br
+[firefox-shield]: https://img.shields.io/badge/firefox-1.0.0-orange
+[firefox-url]: https://addons.mozilla.org/pt-BR/firefox/addon/organizegpt/
+[opera-shield]: https://img.shields.io/badge/opera-1.0.0-red
+[opera-url]: https://addons.opera.com/en/extensions/details/organizegpt/
