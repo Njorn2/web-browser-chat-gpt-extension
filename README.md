@@ -36,6 +36,9 @@
             <li>
                 <a href="#installing-on-firefox">Installating on Firefox</a>
             </li>
+            <li>
+                <a href="#installing-on-opera">Installating on Opera</a>
+            </li>
         </ul>
     </li>
     <li><a href="#usagge">Usage</a></li>
@@ -52,6 +55,9 @@
             </li>
             <li>
                 <a href="#firefox">Firefox</a>
+            </li>
+            <li>
+                <a href="#opera">Opera</a>
             </li>
             <li>
                 <a href="#new-browser">New Browser</a>
@@ -114,6 +120,18 @@ sh start-firefox.sh
 4. Select the manifest.json.
 5. The extension will be added to your browser and ready to use!
 
+### Installing on Opera.
+1. And run the another command below specific browser.
+```bash
+sh start.sh opera
+# or
+sh start-opera.sh
+```
+2. Open Opera and navigate to `chrome://extensions/`.
+3. Enable **Developer Mode** in the top-right corner.
+4. Click **Load Unpacked** and select the folder target containing this extension. Ex: `/path/to/organizegpt/opera`
+5. The extension will be added to your browser and ready to use!
+
 ## Usage
 
 1. Open ChatGPT and navigate to your conversations.
@@ -165,6 +183,12 @@ To modify or extend the extension:
   # or
   sh start.sh firefox
   ```
+  3.2. **Opera**
+  ```bash
+  sh start-opera.sh
+  # or
+  sh start.sh opera
+  ```
 4. Change Version on file VERSION.
 5. Use the following command to build and minify JavaScript files:
   ```bash
@@ -181,12 +205,14 @@ To add a new extension compatibility for a new browser:
 ```bash
 chrome
 firefox
+opera
   ```
 1.2. Added new browser example.
 ```bash
 chrome
 firefox
 opera
+Edge
   ```
 2. Create the folder config on folder **"source"** with the new browser name.
 3. Add the files **"manifest.json"** and **"background.json"** to the new browser folder.
@@ -214,6 +240,12 @@ sh start.sh chrome
 sh start-firefox.sh
 # or
 sh start.sh firefox
+```
+#### **opera**
+```bash
+sh start-opera.sh
+# or
+sh start.sh opera
 ```
 #### **new browser**
 ```bash
