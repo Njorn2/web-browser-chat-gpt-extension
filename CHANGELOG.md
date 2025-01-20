@@ -8,6 +8,7 @@
 - Added the LICENCE
 - Added support to Chrome Extensions
 - Added support to Firefox Extensions
+- Added support to Opera Extensions
 - Listener of ChatGPT conversation's request.
 - List ChatGPT conversations by years and months.
 - Conversations without creation time are listed as "No Date" and all in "January".

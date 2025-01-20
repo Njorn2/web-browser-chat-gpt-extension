@@ -1,13 +1,20 @@
 #!/bin/bash
 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 echo "###############################"
 echo "#      Build OrganizeGPT      #"
-echo "###############################\n"
+echo "###############################"
+
+echo ""
 
 echo "-> Cleaning Past Buildts..."
 rm -rf build
 mkdir build
-echo " \xE2\x9C\x94 Clean Past Buildts completed!\n"
+echo " ✓ Clean Past Buildts completed!"
+
+echo ""
 
 MANIFEST_FILE="source/manifest.json"
 
@@ -20,7 +27,9 @@ VERSION="1.0.0"
 if [ -f "$version_file" ]; then
     VERSION=$(cat "$version_file")
 fi
-echo "-> Current Version v$VERSION\n"
+echo "-> Current Version v$VERSION"
+
+echo ""
 
 readmeFile="README.md"
 sed -i '' "s/\(version-\)[0-9]*\.[0-9]*\.[0-9]*/\1$VERSION/" "$readmeFile"
@@ -35,13 +44,17 @@ while IFS= read -r line; do
     browsers+=("$line")
 done < "$browsers_path"
 
-echo " \xE2\x9C\x94 Building to ${browsers[@]}\n"
+echo " ✓ Building to ${browsers[@]}"
 
-echo "-> Starting Builds\n"
+echo ""
+
+echo "-> Starting Builds"
 for browser in "${browsers[@]}"; do
     echo "-> Starting build for $browser"
     mkdir build/$browser
-    echo "\n-> Starting Copying Files...\n"
+    echo "-> Starting Copying Files..."
+
+    echo ""
 
     # Copying Sources to build.
     echo "-> Copying Images..."
@@ -49,64 +62,82 @@ for browser in "${browsers[@]}"; do
     cp source/images/logo_top.png build/$browser/images
     cp source/images/icon_chat*.png build/$browser/images
     cp source/images/search.svg build/$browser/images
-    echo " \xE2\x9C\x94 Images Done!\n"
+    echo " ✓ Images Done!"
+
+    echo ""
 
     echo "-> Copying Manifest..."
     cp "source/$browser/manifest.json" build/$browser
-    echo " \xE2\x9C\x94 Manifest Done!\n"
+    echo " ✓ Manifest Done!"
     echo "-> Copying Popup HTML..."
     cp source/popup.html build/$browser
-    echo " \xE2\x9C\x94 Popup HTML Done!\n"
+    echo " ✓ Popup HTML Done!"
 
-    echo " \xE2\x9C\x94 Copying files Done!\n"
+    echo ""
+    echo " ✓ Copying files Done!"
+    echo ""
 
-    echo "-> Starting Minifyings...\n"
+    echo "-> Starting Minifyings..."
     echo "-> Minifying popup.js..."
     # Minify popup.js
     npx terser source/popup.js --compress --mangle --output build/$browser/popup.min.js
-    echo " \xE2\x9C\x94 popup.min.js done!\n"
+    echo " ✓ popup.min.js done!"
+
+    echo ""
 
     # Minify background.js
     echo "-> Minifying background.js..."
     npx terser source/$browser/background.js --compress --mangle --output build/$browser/background.min.js
-    echo " \xE2\x9C\x94 backrgound.min.js done!\n"
+    echo " ✓ backrgound.min.js done!"
+
+    echo ""
 
     # Minify content.js
     echo "-> Minifying content.js..."
     npx terser source/content.js --compress --mangle --output build/$browser/content.min.js
-    echo " \xE2\x9C\x94 content.min.js done!\n"
+    echo " ✓ content.min.js done!"
+
+    echo ""
 
     # Use sed to replace the string
     echo "-> Replacing popup.min.js on popup.html..."
     popupHtmlFile="build/$browser/popup.html"
     sed -i '' 's#<script src="popup.js" defer></script>#<script src="popup.min.js" defer></script>#' "$popupHtmlFile"
-    echo " \xE2\x9C\x94 Replacing popup.min.js done!\n"
+    echo " ✓ Replacing popup.min.js done!"
+
+    echo ""
 
     echo "-> Replacing content.min.js on manifest.json..."
     manifestFile="build/$browser/manifest.json"
     sed -i '' 's#\"js\"\:\ \[\"content\.js\"\]\,#\"js\"\:\ \[\"content\.min\.js\"\]\,#' "$manifestFile"
-    echo " \xE2\x9C\x94 Replacing content.min.js done!\n"
+    echo " ✓ Replacing content.min.js done!"
+
+    echo ""
 
     echo "-> Replacing background.min.js on manifest.json..."
     if [ "$browser" == "firefox" ]; then
         sed -i '' 's#\"scripts\"\:\ \[\"background\.js\"\]#\"scripts\"\:\ \[\"background\.min\.js\"\]#' "$manifestFile"
     elif [ "$browser" == "chrome" ]; then
         sed -i '' 's#\"service_worker\"\:\ \"background\.js\"#\"service_worker\"\:\ \"background\.min\.js\"#' "$manifestFile"
+    elif [ "$browser" == "opera" ]; then
+        sed -i '' 's#\"service_worker\"\:\ \"background\.js\"#\"service_worker\"\:\ \"background\.min\.js\"#' "$manifestFile"
     else
         echo "Browser not supported: $browser"
     fi
-    echo " \xE2\x9C\x94 Replacing background.min.js done!\n"
+    echo " ✓ Replacing background.min.js done!"
+
+    echo ""
 
     # Check the exit status of the command
     if [ $? -ne 0 ]; then
-        echo "\n--> Build failed! :( <--\n" >&2
+        echo "--> Build failed! :( <--" >&2
         exit 1  # Exit the script with a non-zero status
     else
-        echo " \xE2\x9C\x94 Build v$VERSION to $browser successfully!  \xE2\x9C\x94\n"
+        echo " ✓ Build v$VERSION to $browser successfully!  ✓"
     fi
-    echo " \xE2\x9C\x94 $browser extension built!\n"
+    echo " ✓ $browser extension built!"
 done
-echo "\n \xE2\x9C\x94 Extensions to ${browsers[@]} built!\n"
+echo " ✓ Extensions to ${browsers[@]} built!"
 
 echo "-> Ziping buildts to publish..."
 mkdir build/zips
@@ -114,9 +145,9 @@ for browser in "${browsers[@]}"; do
     echo "-> Compressing $browser"
     cd build/$browser/ && zip -r ../zips/organizegpt-$browser.zip . && cd ../../
     cd targets/$browser/ && zip -r ../../build/zips/organizegpt-$browser-source.zip . && cd ../../
-    echo " \xE2\x9C\x94 $browser compressed!\n"
+    echo " ✓ $browser compressed!"
 done
-echo " \xE2\x9C\x94 Buildts compressed!\n"
+echo " ✓ Buildts compressed!"
 
 # Check the exit status of the command
 if [ $? -ne 0 ]; then
@@ -126,6 +157,6 @@ if [ $? -ne 0 ]; then
     exit 1  # Exit the script with a non-zero status
 else
     echo ""
-    echo " \xE2\x9C\x94 Compression v$VERSION successfully!  \xE2\x9C\x94"
+    echo " ✓ Compression v$VERSION successfully!  ✓"
     echo ""
 fi
