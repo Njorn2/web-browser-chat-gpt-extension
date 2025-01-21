@@ -1,0 +1,8 @@
+[
+  {
+    "key": "cmd+d",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build Extension",
+    "when": "editorTextFocus"
+  }
+]

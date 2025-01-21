@@ -1,0 +1,19 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-b": [
+        "task::Spawn",
+        { "task_name": "build organizegpt extension" }
+      ],
+      "cmd-shift-k": [
+        "task::Spawn",
+        { "task_name": "clean organizegpt extension project" }
+      ],
+      "cmd-shift-r": [
+        "task::Spawn",
+        { "task_name": "run organizegpt extension" }
+      ]
+    }
+  }
+]

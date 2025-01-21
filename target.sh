@@ -3,6 +3,18 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+echo "-> Checking Version."
+version_file="VERSION"
+VERSION="1.0.0"
+
+# Read the version from the file
+if [ -f "$version_file" ]; then
+    VERSION=$(cat "$version_file")
+fi
+echo "-> Current Version v$VERSION"
+
+echo ""
+
 TARGETS_PATH="targets/"
 
 # BROWSERS Compabilities
@@ -66,6 +78,10 @@ if [ -z "$1" ]; then
         echo "-> Copying manifest.json..."
         cp "source/$browser/$MANIFEST_JSON" "$TARGETS_PATH$browser"
         echo " ✓ manifest.json Done!"
+
+        echo "-> Updating Version..."
+        sed -i '' "s/\(version\":\ \"\)[0-9]*\.[0-9]*\.[0-9]*/\1$VERSION/" "$TARGETS_PATH$browser/$MANIFEST_JSON"
+        echo " ✓ Version updated!"
 
         echo ""
 

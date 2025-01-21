@@ -103,9 +103,9 @@ Effortlessly organize and search your ChatGPT conversations by year and month wi
 ### Installing on Chrome.
 1. And run the another command below specific browser.
 ```bash
-sh start.sh chrome
+sh target.sh chrome
 # or
-sh start-chrome.sh
+sh target-chrome.sh
 ```
 2. Open Chrome and navigate to `chrome://extensions/`.
 3. Enable **Developer Mode** in the top-right corner.
@@ -115,9 +115,9 @@ sh start-chrome.sh
 ### Installing on Firefox.
 1. And run the another command below specific browser.
 ```bash
-sh start.sh firefox
+sh target.sh firefox
 # or
-sh start-firefox.sh
+sh target-firefox.sh
 ```
 2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.
 3. Click **Load Temporary Add-on…** and select the folder target containing this extension. Ex: `/path/to/organizegpt/targets/firefox`
@@ -127,9 +127,9 @@ sh start-firefox.sh
 ### Installing on Opera.
 1. And run the another command below specific browser.
 ```bash
-sh start.sh opera
+sh target.sh opera
 # or
-sh start-opera.sh
+sh target-opera.sh
 ```
 2. Open Opera and navigate to `chrome://extensions/`.
 3. Enable **Developer Mode** in the top-right corner.
@@ -177,21 +177,21 @@ To modify or extend the extension:
 
 3.1. **Chrome**
   ```bash
-  sh start-chrome.sh
+  sh target-chrome.sh
   # or
-  sh start.sh chrome
+  sh target.sh chrome
   ```
 3.2. **Firefox**
   ```bash
-  sh start-firefox.sh
+  sh target-firefox.sh
   # or
-  sh start.sh firefox
+  sh target.sh firefox
   ```
   3.2. **Opera**
   ```bash
-  sh start-opera.sh
+  sh target-opera.sh
   # or
-  sh start.sh opera
+  sh target.sh opera
   ```
 4. Change Version on file VERSION.
 5. Use the following command to build and minify JavaScript files:
@@ -222,7 +222,7 @@ Edge
 3. Add the files **"manifest.json"** and **"background.json"** to the new browser folder.
 4. Run command below to generate target from new browser.
 ```bash
-sh config-start.sh
+sh config-targets.sh
 ```
 5. Make config necessary adjusts on config files **"manifest.json"** and **"background.json"** from source/<new-browser>
 
@@ -235,27 +235,27 @@ After changes, run command below to update targets folders to test on browsers.
 
 #### **chrome**
 ```bash
-sh start-chrome.sh
+sh target-chrome.sh
 # or
-sh start.sh chrome
+sh target.sh chrome
 ```
 #### **firefox**
 ```bash
-sh start-firefox.sh
+sh target-firefox.sh
 # or
-sh start.sh firefox
+sh target.sh firefox
 ```
 #### **opera**
 ```bash
-sh start-opera.sh
+sh target-opera.sh
 # or
-sh start.sh opera
+sh target.sh opera
 ```
 #### **new browser**
 ```bash
-sh start-new-browser.sh
+sh target-new-browser.sh
 # or
-sh start.sh new-browser
+sh target.sh new-browser
 ```
 
 ### Testing
@@ -291,8 +291,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[version-shield]: https://img.shields.io/badge/version-1.0.0-darkred
-[version-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/releases/tag/1.0.0
+[version-shield]: https://img.shields.io/badge/version-1.0.2-darkred
+[version-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/releases/tag/1.0.2
 [forks-shield]: https://img.shields.io/badge/forks-0-blue
 [forks-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/forks
 [stars-shield]: https://img.shields.io/badge/stars-0-blue

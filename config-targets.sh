@@ -39,7 +39,7 @@ echo "-> Compatible Browsers: ${browsers[@]}"
 echo ""
 
 # Iterate over the array ✓
-echo "-> Creting Targets"
+echo "-> Creating Targets Config"
 for browser in "${browsers[@]}"; do
 
     echo ""
@@ -48,6 +48,18 @@ for browser in "${browsers[@]}"; do
     touch "target-$browser.sh"
     echo "sh target.sh $browser" > "target-$browser.sh"
     echo " ✓ target-$browser.sh created."
+done
+
+echo ""
+
+echo "-> Configuring Targets"
+for browser in "${browsers[@]}"; do
+
+    echo ""
+
+    echo "-> Running target-$browser.sh"
+    sh target-$browser.sh
+    echo " ✓ target-$browser.sh configured."
 done
 
 echo ""
