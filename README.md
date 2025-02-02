@@ -89,6 +89,9 @@ Effortlessly organize and search your ChatGPT conversations by year and month wi
 - **User-Friendly Interface**: Simple and intuitive design for seamless use.
 - **Privacy-Focused**: Processes data locally, ensuring your information stays secure.
 
+## Requirements
+- **Terser:** npm install terser
+
 ## Installation
 
 1. Clone this repository or [download the ZIP file](https://github.com/Njorn2/web-browser-chat-gpt-extension/).
@@ -304,8 +307,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[version-shield]: https://img.shields.io/badge/version-1.1.0-darkred
-[version-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/releases/tag/1.1.0
+[version-shield]: https://img.shields.io/badge/version-1.0.1-darkred
+[version-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/releases/tag/1.0.1
 [forks-shield]: https://img.shields.io/badge/forks-0-blue
 [forks-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/forks
 [stars-shield]: https://img.shields.io/badge/stars-0-blue

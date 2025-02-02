@@ -3,6 +3,26 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+echo "-> Checking OS..."
+os=""
+cmd=""
+sedCmd="$sedCmd"
+if [ "$(uname -s)" = "Darwin" ]; then
+    echo "-> System MacOS Selected!"
+    os="macos"
+    cmd="sh"
+    sedCmd="$sedCmd"
+elif [ "$(uname -s)" = "Linux" ]; then
+    echo "-> System Linux Selected!"
+    os="linux"
+    cmd="bash"
+    sedCmd="sed -i"
+else
+    echo "Unknown OS"
+    cmd="sh"
+    sedCmd="$sedCmd"
+fi
+
 echo "-> Checking Version."
 version_file="VERSION"
 VERSION="1.0.0"
@@ -80,7 +100,7 @@ if [ -z "$1" ]; then
         echo " ✓ manifest.json Done!"
 
         echo "-> Updating Version..."
-        sed -i '' "s/\(version\":\ \"\)[0-9]*\.[0-9]*\.[0-9]*/\1$VERSION/" "$TARGETS_PATH$browser/$MANIFEST_JSON"
+        $sedCmd "s/\(version\":\ \"\)[0-9]*\.[0-9]*\.[0-9]*/\1$VERSION/" "$TARGETS_PATH$browser/$MANIFEST_JSON"
         echo " ✓ Version updated!"
 
         echo ""
