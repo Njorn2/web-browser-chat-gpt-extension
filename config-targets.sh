@@ -9,6 +9,22 @@ echo "# Configuring Browsers Compatible Targets #"
 echo "#                                         #"
 echo "###########################################"
 
+echo "-> Checking OS..."
+os=""
+cmd=""
+if [ "$(uname -s)" = "Darwin" ]; then
+    echo "-> System MacOS Selected!"
+    os="macos"
+    cmd="sh"
+elif [ "$(uname -s)" = "Linux" ]; then
+    echo "-> System Linux Selected!"
+    os="linux"
+    cmd="bash"
+else
+    echo "Unknown OS"
+    cmd="sh"
+fi
+
 echo "-> Checking Version."
 version_file="VERSION"
 VERSION="1.0.0"
@@ -46,7 +62,7 @@ for browser in "${browsers[@]}"; do
 
     echo "-> Creating target-$browser.sh"
     touch "target-$browser.sh"
-    echo "sh target.sh $browser" > "target-$browser.sh"
+    echo "$cmd target.sh $browser" > "target-$browser.sh"
     echo " ✓ target-$browser.sh created."
 done
 
@@ -58,7 +74,7 @@ for browser in "${browsers[@]}"; do
     echo ""
 
     echo "-> Running target-$browser.sh"
-    sh target-$browser.sh
+    $cmd target-$browser.sh
     echo " ✓ target-$browser.sh configured."
 done
 
