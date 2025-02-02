@@ -98,6 +98,7 @@ Effortlessly organize and search your ChatGPT conversations by year and month wi
   ```bash
    sh config-targets.sh
   ```
+  > If you running in linux, use 'bash' intead of 'sh'.
 5. Follow the steps below to each browser.
 
 ### Installing on Chrome.
@@ -107,6 +108,7 @@ sh target.sh chrome
 # or
 sh target-chrome.sh
 ```
+> If you running in linux, use 'bash' intead of 'sh'.
 2. Open Chrome and navigate to `chrome://extensions/`.
 3. Enable **Developer Mode** in the top-right corner.
 4. Click **Load Unpacked** and select the folder target containing this extension. Ex: `/path/to/organizegpt/targets/chrome`
@@ -119,6 +121,7 @@ sh target.sh firefox
 # or
 sh target-firefox.sh
 ```
+> If you running in linux, use 'bash' intead of 'sh'.
 2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.
 3. Click **Load Temporary Add-on…** and select the folder target containing this extension. Ex: `/path/to/organizegpt/targets/firefox`
 4. Select the manifest.json.
@@ -181,23 +184,27 @@ To modify or extend the extension:
   # or
   sh target.sh chrome
   ```
+  > If you running in linux, use 'bash' intead of 'sh'.
 3.2. **Firefox**
   ```bash
   sh target-firefox.sh
   # or
   sh target.sh firefox
   ```
+  > If you running in linux, use 'bash' intead of 'sh'.
   3.2. **Opera**
   ```bash
   sh target-opera.sh
   # or
   sh target.sh opera
   ```
+  > If you running in linux, use 'bash' intead of 'sh'.
 4. Change Version on file VERSION.
 5. Use the following command to build and minify JavaScript files:
   ```bash
   sh build.sh
   ```
+  > If you running in linux, use 'bash' intead of 'sh'.
 
 ### Supporting new Browser
 
@@ -224,6 +231,7 @@ Edge
 ```bash
 sh config-targets.sh
 ```
+> If you running in linux, use 'bash' intead of 'sh'.
 5. Make config necessary adjusts on config files **"manifest.json"** and **"background.json"** from source/<new-browser>
 
 ### Keep in Mind
@@ -239,24 +247,28 @@ sh target-chrome.sh
 # or
 sh target.sh chrome
 ```
+> If you running in linux, use 'bash' intead of 'sh'.
 #### **firefox**
 ```bash
 sh target-firefox.sh
 # or
 sh target.sh firefox
 ```
+> If you running in linux, use 'bash' intead of 'sh'.
 #### **opera**
 ```bash
 sh target-opera.sh
 # or
 sh target.sh opera
 ```
+> If you running in linux, use 'bash' intead of 'sh'.
 #### **new browser**
 ```bash
 sh target-new-browser.sh
 # or
 sh target.sh new-browser
 ```
+> If you running in linux, use 'bash' intead of 'sh'.
 
 ### Testing
 
