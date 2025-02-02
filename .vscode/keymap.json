@@ -1,0 +1,17 @@
+[
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.tasks.runTask",
+        "args": "clean organizegpt extension projects"
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command": "workbench.action.tasks.runTask",
+        "args": "build organizegpt extension"
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "workbench.action.tasks.runTask",
+        "args": "run organizegpt extension"
+    }
+]

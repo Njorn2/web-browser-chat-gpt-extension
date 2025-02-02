@@ -89,6 +89,9 @@ Effortlessly organize and search your ChatGPT conversations by year and month wi
 - **User-Friendly Interface**: Simple and intuitive design for seamless use.
 - **Privacy-Focused**: Processes data locally, ensuring your information stays secure.
 
+## Requirements
+- **Terser:** npm install terser
+
 ## Installation
 
 1. Clone this repository or [download the ZIP file](https://github.com/Njorn2/web-browser-chat-gpt-extension/).
@@ -98,15 +101,17 @@ Effortlessly organize and search your ChatGPT conversations by year and month wi
   ```bash
    sh config-targets.sh
   ```
+  > If you are using Linux, use 'bash' instead of 'sh'.
 5. Follow the steps below to each browser.
 
 ### Installing on Chrome.
 1. And run the another command below specific browser.
 ```bash
-sh start.sh chrome
+sh target.sh chrome
 # or
-sh start-chrome.sh
+sh target-chrome.sh
 ```
+> If you are using Linux, use 'bash' instead of 'sh'.
 2. Open Chrome and navigate to `chrome://extensions/`.
 3. Enable **Developer Mode** in the top-right corner.
 4. Click **Load Unpacked** and select the folder target containing this extension. Ex: `/path/to/organizegpt/targets/chrome`
@@ -115,10 +120,11 @@ sh start-chrome.sh
 ### Installing on Firefox.
 1. And run the another command below specific browser.
 ```bash
-sh start.sh firefox
+sh target.sh firefox
 # or
-sh start-firefox.sh
+sh target-firefox.sh
 ```
+> If you are using Linux, use 'bash' instead of 'sh'.
 2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.
 3. Click **Load Temporary Add-on…** and select the folder target containing this extension. Ex: `/path/to/organizegpt/targets/firefox`
 4. Select the manifest.json.
@@ -127,10 +133,11 @@ sh start-firefox.sh
 ### Installing on Opera.
 1. And run the another command below specific browser.
 ```bash
-sh start.sh opera
+sh target.sh opera
 # or
-sh start-opera.sh
+sh target-opera.sh
 ```
+> If you are using Linux, use 'bash' instead of 'sh'.
 2. Open Opera and navigate to `chrome://extensions/`.
 3. Enable **Developer Mode** in the top-right corner.
 4. Click **Load Unpacked** and select the folder target containing this extension. Ex: `/path/to/organizegpt/opera`
@@ -177,27 +184,31 @@ To modify or extend the extension:
 
 3.1. **Chrome**
   ```bash
-  sh start-chrome.sh
+  sh target-chrome.sh
   # or
-  sh start.sh chrome
+  sh target.sh chrome
   ```
+  > If you are using Linux, use 'bash' instead of 'sh'.
 3.2. **Firefox**
   ```bash
-  sh start-firefox.sh
+  sh target-firefox.sh
   # or
-  sh start.sh firefox
+  sh target.sh firefox
   ```
+  > If you are using Linux, use 'bash' instead of 'sh'.
   3.2. **Opera**
   ```bash
-  sh start-opera.sh
+  sh target-opera.sh
   # or
-  sh start.sh opera
+  sh target.sh opera
   ```
+  > If you are using Linux, use 'bash' instead of 'sh'.
 4. Change Version on file VERSION.
 5. Use the following command to build and minify JavaScript files:
   ```bash
   sh build.sh
   ```
+  > If you are using Linux, use 'bash' instead of 'sh'.
 
 ### Supporting new Browser
 
@@ -222,8 +233,9 @@ Edge
 3. Add the files **"manifest.json"** and **"background.json"** to the new browser folder.
 4. Run command below to generate target from new browser.
 ```bash
-sh config-start.sh
+sh config-targets.sh
 ```
+> If you are using Linux, use 'bash' instead of 'sh'.
 5. Make config necessary adjusts on config files **"manifest.json"** and **"background.json"** from source/<new-browser>
 
 ### Keep in Mind
@@ -235,28 +247,32 @@ After changes, run command below to update targets folders to test on browsers.
 
 #### **chrome**
 ```bash
-sh start-chrome.sh
+sh target-chrome.sh
 # or
-sh start.sh chrome
+sh target.sh chrome
 ```
+> If you are using Linux, use 'bash' instead of 'sh'.
 #### **firefox**
 ```bash
-sh start-firefox.sh
+sh target-firefox.sh
 # or
-sh start.sh firefox
+sh target.sh firefox
 ```
+> If you are using Linux, use 'bash' instead of 'sh'.
 #### **opera**
 ```bash
-sh start-opera.sh
+sh target-opera.sh
 # or
-sh start.sh opera
+sh target.sh opera
 ```
+> If you are using Linux, use 'bash' instead of 'sh'.
 #### **new browser**
 ```bash
-sh start-new-browser.sh
+sh target-new-browser.sh
 # or
-sh start.sh new-browser
+sh target.sh new-browser
 ```
+> If you are using Linux, use 'bash' instead of 'sh'.
 
 ### Testing
 
@@ -291,8 +307,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[version-shield]: https://img.shields.io/badge/version-1.0.0-darkred
-[version-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/releases/tag/1.0.0
+[version-shield]: https://img.shields.io/badge/version-1.0.1-darkred
+[version-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/releases/tag/1.0.1
 [forks-shield]: https://img.shields.io/badge/forks-0-blue
 [forks-url]: https://github.com/Njorn2/web-browser-chat-gpt-extension/forks
 [stars-shield]: https://img.shields.io/badge/stars-0-blue

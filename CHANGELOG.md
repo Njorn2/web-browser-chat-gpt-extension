@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.1
+
+### Fixies
+- Fix Some layout issues from item list label broken layout.
+- Fix some issues from shell scripts to run correctely on linux.
+
 ## v1.0.0
 
 ### Added

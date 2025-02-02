@@ -9,6 +9,27 @@ echo "###############################"
 
 echo ""
 
+echo "-> Checking OS..."
+os=""
+cmd=""
+sedCmd="sed -i ''"
+if [ "$(uname -s)" = "Darwin" ]; then
+    echo "-> System MacOS Selected!"
+    os="macos"
+    cmd="sh"
+    sedCmd="sed -i ''"
+elif [ "$(uname -s)" = "Linux" ]; then
+    echo "-> System Linux Selected!"
+    os="linux"
+    cmd="bash"
+    sedCmd="sed -i"
+else
+    echo "Unknown OS"
+    cmd="sh"
+fi
+
+echo ""
+
 echo "-> Cleaning Past Buildts..."
 rm -rf build
 mkdir build
@@ -32,8 +53,8 @@ echo "-> Current Version v$VERSION"
 echo ""
 
 readmeFile="README.md"
-sed -i '' "s/\(version-\)[0-9]*\.[0-9]*\.[0-9]*/\1$VERSION/" "$readmeFile"
-sed -i '' "s|\(tag/\)[0-9]*\.[0-9]*\.[0-9]*|\1$VERSION|" "$readmeFile"
+$sedCmd "s/\(version-\)[0-9]*\.[0-9]*\.[0-9]*/\1$VERSION/" "$readmeFile"
+$sedCmd "s|\(tag/\)[0-9]*\.[0-9]*\.[0-9]*|\1$VERSION|" "$readmeFile"
 
 # Browsers Array
 browsers=()
@@ -102,25 +123,25 @@ for browser in "${browsers[@]}"; do
     # Use sed to replace the string
     echo "-> Replacing popup.min.js on popup.html..."
     popupHtmlFile="build/$browser/popup.html"
-    sed -i '' 's#<script src="popup.js" defer></script>#<script src="popup.min.js" defer></script>#' "$popupHtmlFile"
+    $sedCmd 's#<script src="popup.js" defer></script>#<script src="popup.min.js" defer></script>#' "$popupHtmlFile"
     echo " ✓ Replacing popup.min.js done!"
 
     echo ""
 
     echo "-> Replacing content.min.js on manifest.json..."
     manifestFile="build/$browser/manifest.json"
-    sed -i '' 's#\"js\"\:\ \[\"content\.js\"\]\,#\"js\"\:\ \[\"content\.min\.js\"\]\,#' "$manifestFile"
+    $sedCmd 's#\"js\"\:\ \[\"content\.js\"\]\,#\"js\"\:\ \[\"content\.min\.js\"\]\,#' "$manifestFile"
     echo " ✓ Replacing content.min.js done!"
 
     echo ""
 
     echo "-> Replacing background.min.js on manifest.json..."
     if [ "$browser" == "firefox" ]; then
-        sed -i '' 's#\"scripts\"\:\ \[\"background\.js\"\]#\"scripts\"\:\ \[\"background\.min\.js\"\]#' "$manifestFile"
+        $sedCmd 's#\"scripts\"\:\ \[\"background\.js\"\]#\"scripts\"\:\ \[\"background\.min\.js\"\]#' "$manifestFile"
     elif [ "$browser" == "chrome" ]; then
-        sed -i '' 's#\"service_worker\"\:\ \"background\.js\"#\"service_worker\"\:\ \"background\.min\.js\"#' "$manifestFile"
+        $sedCmd 's#\"service_worker\"\:\ \"background\.js\"#\"service_worker\"\:\ \"background\.min\.js\"#' "$manifestFile"
     elif [ "$browser" == "opera" ]; then
-        sed -i '' 's#\"service_worker\"\:\ \"background\.js\"#\"service_worker\"\:\ \"background\.min\.js\"#' "$manifestFile"
+        $sedCmd 's#\"service_worker\"\:\ \"background\.js\"#\"service_worker\"\:\ \"background\.min\.js\"#' "$manifestFile"
     else
         echo "Browser not supported: $browser"
     fi
@@ -138,6 +159,11 @@ for browser in "${browsers[@]}"; do
     echo " ✓ $browser extension built!"
 done
 echo " ✓ Extensions to ${browsers[@]} built!"
+
+echo ""
+echo "-> Preparing targets..."
+$cmd target.sh
+echo ""
 
 echo "-> Ziping buildts to publish..."
 mkdir build/zips

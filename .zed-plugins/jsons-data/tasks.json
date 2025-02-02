@@ -1,0 +1,26 @@
+[
+  {
+    "label": "build organizegpt extension",
+    "command": "sh build.sh",
+    "description": "Run the build.sh script to build the project OrganizeGPT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "clean organizegpt extension projects",
+    "command": "sh clean-project.sh",
+    "description": "Runs the clean-project.sh script to clean the project OrganizeGPT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "run organizegpt extension",
+    "command": "sh target.sh",
+    "description": "Runs the target.sh script to create and/or update the project OrganizeGPT Targets",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]
