@@ -1,50 +1,35 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "build organizegpt extension",
-      "type": "shell",
-      "command": "sh",
-      "args": ["${workspaceFolder}/build.sh"],
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "clean organizegpt extension project",
-      "type": "shell",
-      "command": "sh",
-      "args": ["${workspaceFolder}/clean-project.sh"],
-      "problemMatcher": [],
-      "group": {
-        "kind": "clean",
-        "isDefault": true
-      },
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "run organizegpt extension",
-      "type": "shell",
-      "command": "sh",
-      "args": ["${workspaceFolder}/target.sh"],
-      "problemMatcher": [],
-      "group": {
-        "kind": "run",
-        "isDefault": true
-      },
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
-      }
-    }
-  ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build organizegpt extension",
+            "type": "shell",
+            "command": "sh ${workspaceFolder}/build.sh",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "clean organizegpt extension projects",
+            "type": "shell",
+            "command": "sh ${workspaceFolder}/clean-project.sh",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "run organizegpt extension",
+            "type": "shell",
+            "command": "sh ${workspaceFolder}/target.sh",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        }
+    ]
 }

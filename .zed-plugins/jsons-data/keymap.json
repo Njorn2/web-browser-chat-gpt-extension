@@ -6,7 +6,7 @@
         "task::Spawn",
         { "task_name": "build organizegpt extension" }
       ],
-      "cmd-shift-k": [
+      "cmd-ctrl+shift-b": [
         "task::Spawn",
         { "task_name": "clean organizegpt extension project" }
       ],
